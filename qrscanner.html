@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <title> QR Scanner</title>
+</head>
+
+<body>
+
+  <header class="bg-sky-500 p-4 mb-15 flex flex-row align-center text-center gap-5 justify-center">
+    <div class="max-w-5xl m-auto flex flex-row align-center text-center gap-5 justify-center">
+      <img src="img/qr-code-scan-2-svgrepo-com.svg" alt=" qr codde logo" class="w-10 h-10">
+      <div class="text-xl font-bold  text-white self-center md:text-3xl"><a href="index.html">QR Master </a></div>
+    </div>
+    <a href="index.html"
+      class="bg-gray-600 text-xs rounded w-50 text-white py-3 px-2 self-center md:text-xs hover:bg-sky-500 border-2 ">
+      QR Code Generator </a>
+  </header>
+  <main class="mt-5">
+    <h1 class="text-center lg:text-4xl md:text-4xl text-[2.15rem] mb-5 font-bold">
+      <span class="text-sky-500/80 text-bg-clip">QR</span> Scanner
+    </h1>
+
+    <div class="flex flex-col align-center justify-center m-auto  mb-10 p-10  shadow-2xl md:max-w-4xl md:flex-row p-20 gap-10">
+        <form class="form-horizontal" id="qr_code_scanner_form" method="post">
+            <div class=" h-full" id="imageUploadBanner">
+            
+              <input class="mt-4 mb-10  md:w-1/2" id="imageUploadBanner">
+              <label for="qr-input-file">
+                <div
+                  class="relative rounded-[15px] border-2 border-dashed border-gray-mid p-5 lg:min-h-[20rem] min-h-[21.7rem] flex items-center justify-center cursor-pointer">
+                  <input accept=".jpg, .jpeg, .png, .svg" type="file"
+                    class="opacity-0 absolute left-0 right-0 top-0 bottom-0 overflow-hidden cursor-pointer" id="qr-input-file">
+                  <span
+                    class="h-full text-gray-mid font-bold sm:text-[1.75rem] text-xl flex items-center scan-container text-center">
+                    <img src="img/upload-svgrepo-com.svg" class="w-10 h-10 mr-3"></img> Upload Image
+                  </span>
+                </div>
+              </label>
+              </div>
+        </form>
+       
+            <div class="w-full md:w-1/2 mr-25 self-center" id="">
+              <img src="img/time-39.svg" alt="qr code " class="w-1/2 m-auto mb-2 md:w-full" id="img1">
+              <p class="xl: mt-1 xl:text-xl sm:text-2xl text-xl text-[#707070] font-semibold text-center block" id="pres">Waiting For an
+                Item to be Scanned...</p>
+            </div>
+    </div>
+  </main>
+
+  <div id="resualtlink"></div>
+  <p id="msg"></p>
+  <script src="js/scanner.js"></script>
+
+</body>
+
+</html>
